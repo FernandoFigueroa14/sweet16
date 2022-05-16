@@ -58,7 +58,7 @@
     margin-bottom: 0;
   }
   .App-header{
-    background-attachment: none;
+    background-attachment:inherit;
   }
 }
 
