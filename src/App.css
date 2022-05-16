@@ -62,13 +62,8 @@
   .map-column{
     display: none;
   }
-  .countdown-title{
-    font-size: 1rem;
-    font-weight: 500;
-  }
-  
   .countdown-number{
-    font-size: 2rem;
+    font-size: 4rem;
     font-weight: 900 ;
   }
 }
