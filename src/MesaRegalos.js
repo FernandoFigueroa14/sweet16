@@ -18,7 +18,7 @@ function MesaRegalos() {
                 Regalos...
             </p>
         </Col>
-        <Col className="text-center map" md="12" lg="6" xl="5">
+        <Col className="text-center" md="12" lg="6" xl="5">
             <img src={Liverpool} alt="Liverpool" className="img-fluid" />
         </Col>
       </Row>
