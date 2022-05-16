@@ -17,7 +17,7 @@ function Direccion() {
             </p>
             <Button href='https://www.google.com/maps?ll=19.542045,-99.214668&z=17&t=m&hl=es-419&gl=US&mapclient=embed&cid=11966378282739979065' className='fs-5 fw-bold' variant="primary">Abrir Mapa</Button>
         </Col>
-        <Col className="text-center map" md="12" lg="6" xl="5">
+        <Col className="text-center map-column" md="12" lg="6" xl="5">
             <div className="mapouter">
                 <div className="gmap_canvas">
                     <iframe width="100%" height="100%" id="gmap_canvas" 
