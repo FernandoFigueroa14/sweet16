@@ -57,6 +57,9 @@
   .countdown-number{
     margin-bottom: 0;
   }
+  .App-header{
+    background-attachment: none;
+  }
 }
 
 @media (max-width: 576px) {
