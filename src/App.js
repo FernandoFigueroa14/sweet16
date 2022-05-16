@@ -9,6 +9,7 @@ import ThemeProvider from 'react-bootstrap/ThemeProvider'
 
 function App() {
   const partyDate = new Date('2022-06-24T19:00:00');
+  const id_family = window.location.pathname.split('/')[1];
 
   return (
     <ThemeProvider
@@ -22,6 +23,7 @@ function App() {
         <Direccion />
         <Confirmacion />
         <MesaRegalos />
+        <h1>{id_family}</h1>
       </body>
     </ThemeProvider>
   );
