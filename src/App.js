@@ -1,24 +1,29 @@
-import logo from './logo.svg';
+import React from 'react';
+import CountdownTimer from './CountdownTimer';
+import Body from './Body.js';
+import Direccion from './Direccion.js';
+import Confirmacion from './Confirmacion.js';
+import MesaRegalos from './MesaRegalos';
 import './App.css';
+import ThemeProvider from 'react-bootstrap/ThemeProvider'
 
 function App() {
+  const partyDate = new Date('2022-06-24T19:00:00');
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <ThemeProvider
+      breakpoints={['xxxl', 'xxl', 'xl', 'lg', 'md', 'sm', 'xs', 'xxs']}
+    >
+      <header className="App-header d-flex flex-row align-items-center">
+        <CountdownTimer targetDate={partyDate} />
       </header>
-    </div>
+      <body>
+        <Body />
+        <Direccion />
+        <Confirmacion />
+        <MesaRegalos />
+      </body>
+    </ThemeProvider>
   );
 }
 
