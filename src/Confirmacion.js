@@ -6,12 +6,24 @@ function Confirmacion() {
     //invitados
     const [invitados, setInvitados] = useState([]);
     const id_family = window.location.pathname.split('/')[1];
+    const api = `https://eflqr9xz2e.execute-api.us-east-1.amazonaws.com/prod/invitados/${id_family}`
 
     //obtener invitados de la base de datos
     const getInvitados = () => {
-        fetch(`https://eflqr9xz2e.execute-api.us-east-1.amazonaws.com/prod/invitados/${id_family}`)
-            .then(res => res.json())
+        fetch(api, {
+            method: 'GET',
+            mode: 'cors',
+            headers: {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*'
+            }
+        })
+            .then(res => {
+                console.log(res);
+                return res.json();
+            })
             .then(inv=> {
+                console.log(inv);
                 setInvitados(inv);
             })
             .catch(err => console.log(err));
@@ -23,6 +35,19 @@ function Confirmacion() {
             getInvitados();
         }
     }, []);
+
+    //funcion para confirmar invitado
+    const confirmarInvitado = () => {
+        fetch(api, {
+            method: 'POST',
+            mode: 'cors',
+            headers: {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*'
+            },
+            body: JSON.stringify(invitados)
+        })
+    }
 
   return (
     <Container className='bg-dark'>
@@ -52,13 +77,13 @@ function Confirmacion() {
                                     inline
                                     type="radio"
                                     label="Sí"
-                                    onChange={() => invitado.confirmado = 1}
+                                    onChange= {() => { invitados[index].confirmado = 1; setInvitados(invitados); }}
                                 />
                                 <Form.Check 
                                     inline
                                     type="radio"
                                     label="No"
-                                    onChange={() => invitado.confirmado = 0}
+                                    onChange={() => { invitados[index].confirmado = 0; setInvitados(invitados); }}
                                 />
                             </Col>
                         </Row>
@@ -66,7 +91,7 @@ function Confirmacion() {
                 ))}
             </div>
             <div className="py-4">
-                <Button variant="light" size="lg">
+                <Button onClick={confirmarInvitado()} variant="light" size="lg">
                     Enviar
                 </Button>
             </div>
