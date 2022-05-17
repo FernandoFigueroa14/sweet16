@@ -17,12 +17,12 @@ function App() {
       <header className="App-header d-flex flex-row align-items-center">
         <CountdownTimer targetDate={partyDate} />
       </header>
-      <body>
+      <div>
         <Body />
         <Direccion />
         <Confirmacion />
         <MesaRegalos />
-      </body>
+      </div>
     </ThemeProvider>
   );
 }
