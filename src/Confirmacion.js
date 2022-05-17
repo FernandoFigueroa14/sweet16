@@ -19,7 +19,9 @@ function Confirmacion() {
 
     //creacion del componente
     useEffect(() => {
-        getInvitados();
+        if (id_family) {
+            getInvitados();
+        }
     }, []);
 
   return (
