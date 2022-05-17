@@ -1,29 +1,27 @@
 import React from 'react';
+import { useState, useEffect } from 'react';
 import { Container, Row, Col, Button, Form } from 'react-bootstrap';
 
 function Confirmacion() {
-    const invitados = [
-        {
-            nombre: 'Juan',
-            apellido: 'Perez',
-            confirmado: 0
-        },
-        {
-            nombre: 'Pedro',
-            apellido: 'Perez',
-            confirmado: 0
-        },
-        {
-            nombre: 'Sofia',
-            apellido: 'Perez',
-            confirmado: 0
-        },
-        {
-            nombre: 'Gabriela',
-            apellido: 'Perez',
-            confirmado: 0
-        },
-    ];
+    //invitados
+    const [invitados, setInvitados] = useState([]);
+    const id_family = window.location.pathname.split('/')[1];
+
+    //obtener invitados de la base de datos
+    const getInvitados = () => {
+        fetch(`https://eflqr9xz2e.execute-api.us-east-1.amazonaws.com/prod/invitados/${id_family}`)
+            .then(res => res.json())
+            .then(inv=> {
+                setInvitados(inv);
+            })
+            .catch(err => console.log(err));
+    };
+
+    //creacion del componente
+    useEffect(() => {
+        getInvitados();
+    }, []);
+
   return (
     <Container className='bg-dark'>
       <Row className="justify-content-center text-center m-5">
@@ -45,7 +43,7 @@ function Confirmacion() {
                     <Container>
                         <Row className="justify-content-center text-center">
                             <Col className="text-center" sm="4">
-                                <p key={index}> {invitado.nombre} {invitado.apellido}</p>
+                                <p key={index}> {invitado.invitado}</p>
                             </Col>
                             <Col className="text-center" sm="4">
                                 <Form.Check 
