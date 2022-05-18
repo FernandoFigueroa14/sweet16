@@ -91,7 +91,7 @@ function Confirmacion() {
                     } 
                 })}
             </div>
-            {disabled === 0 ? <h1 className="py-4">Gracias por confirmar tu asistencia ❤️</h1> : <h1 className="d-none"></h1>}
+            {disabled ? <h1 className="py-4">Gracias por confirmar tu asistencia ❤️</h1> : <h1 className="d-none"></h1>}
             <div className="py-4 d-flex justify-content-center">
                 <Form.Control as="textarea" placeholder='Felicita a Alessandra' rows={3} className="text-confirmacion" />
             </div>
