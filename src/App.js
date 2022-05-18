@@ -2,6 +2,7 @@ import React from 'react';
 import CountdownTimer from './CountdownTimer';
 import Body from './Body.js';
 import Direccion from './Direccion.js';
+import Itinerario from './Itinerario.js';
 import Confirmacion from './Confirmacion.js';
 import MesaRegalos from './MesaRegalos';
 import './App.css';
@@ -20,6 +21,7 @@ function App() {
       <div>
         <Body />
         <Direccion />
+        <Itinerario />
         <Confirmacion />
         <MesaRegalos />
       </div>

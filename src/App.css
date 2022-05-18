@@ -11,23 +11,38 @@
   background-color: black;
   min-height: 100vh;
   font-size: calc(10px + 2vmin);
-  background-image: url('./images/portada2.jpg');
+  background-image: url('./images/portadaR.jpg');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
+}
+
+.row{
+  margin: 0 !important;
+}
+
+.row>*{
+  margin: 0 !important;
 }
 
 .countdown{
   font-size: 3rem;
   color: white;
   font-weight: 500;
-  border-bottom: 1px solid white;
 }
 
 .countdown-title{
-  font-size: 2rem;
+  font-size: 4rem;
   color: white;
-  font-weight: 300;
+  font-weight: 500;
+  font-family: 'Babylonica', cursive;
+}
+
+.itinerario{
+  font-size: 6rem;
+  color: #e02a4f;
+  font-weight: 500;
+  font-family: 'Babylonica', cursive;
 }
 
 .countdown-number{
@@ -38,20 +53,43 @@
 .gmap_canvas {
   overflow:hidden;
   background:none!important;
-  height: 500px;
-  width: 600px;;
+  max-height: 500px;
+  max-width: 600px;
 }
 
 .mapouter{
   position:relative;
   text-align:right;
-  height:90%;
-  width:100%;
+  max-height: 500px;
+  max-width: 600px;
+}
+
+.ceremonia {
+  background-color: black;
+  min-height: 50vh;
+  background-image: url('./images/ceremonia.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.reven {
+  background-color: black;
+  min-height: 50vh;
+  background-image: url('./images/reven.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.b-map{
+  background-color: #e02a4f;
+  color: white;
+  border: none;
 }
 
 @media (max-width: 768px) {
   .countdown{
-    border-bottom: 0px solid white;
     padding-bottom: 1.5rem;
   }
   .countdown-number{
@@ -60,11 +98,17 @@
   .App-header{
     background-attachment:inherit;
   }
+  .dir{
+    padding: 2rem 0 2rem 0;
+  }
+  .map-column{
+    display: none;
+  }
 }
 
 @media (max-width: 576px) {
-  .map-column{
-    display: none;
+  .itinerario{
+    font-size: 4rem;
   }
   .countdown-number{
     font-size: 4rem;
