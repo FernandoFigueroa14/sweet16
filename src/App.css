@@ -82,10 +82,22 @@
   background-position: center;
 }
 
+.confirmacion {
+  min-height: 50vh;
+  background-image: url('./images/pame.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 .b-map{
   background-color: #e02a4f;
   color: white;
   border: none;
+}
+
+.text-confirmacion{
+  max-width: 500px;
 }
 
 @media (max-width: 768px) {

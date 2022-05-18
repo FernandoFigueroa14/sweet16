@@ -42,6 +42,11 @@ function Confirmacion() {
             body: JSON.stringify(invitados)
         })
         setDisabled(true);
+        invitados.map(inv => {
+            if(inv.confirmado === 0){
+                setDisabled(false);
+            }
+        });
         swal({
             title: "¡Listo!",
             text: "Gracias por confirmar",
@@ -58,52 +63,42 @@ function Confirmacion() {
     }, []);
 
   return (
-    <Container className='bg-dark'>
-      <Row className="justify-content-center text-center m-5">
-        <Col className="text-center text-white">
-            <h1 className="py-4">PERO NECESITO TU CONFIRMACIÓN</h1>
+    <Container className='confirmacion'>
+      <Row className="justify-content-center text-center">
+        <Col className="text-center">
+            <h1 className="py-4">SOLO NECESITAMOS TU <br/> CONFIRMACIÓN</h1>
+            <p>
+                Selecciona la casilla a lado del nombre de los invitados <br/> que desees confirmar
+            </p>
             <div className="py-4">
-                <Container>
-                    <Row className="justify-content-center text-center">
-                        <Col className="text-center" sm="4">
-                            <h3 className="py-4">Invitado</h3>
-                        </Col>
-                        <Col className="text-center" sm="4">
-                            <h3 className="py-4">¿Asistirá?</h3>
-                        </Col>
-                    </Row>
-                </Container>
-
-                {invitados.map((invitado, index) => (
-                    <Container key={index}>
-                        <Row className="justify-content-center text-center">
-                            <Col className="text-center" sm="4">
-                                <p> {invitado.invitado}</p>
-                            </Col>
-                            <Col className="text-center" sm="4">
-                                <Form.Check 
-                                    inline
-                                    type="radio"
-                                    label="Sí"
-                                    onChange= {() => { invitados[index].confirmado = 1; setInvitados(invitados); }}
-                                />
-                                <Form.Check 
-                                    inline
-                                    type="radio"
-                                    label="No"
-                                    onChange={() => { invitados[index].confirmado = 0; setInvitados(invitados); }}
-                                />
-                            </Col>
-                        </Row>
-                    </Container>
-                ))}
+                {invitados.map((invitado, index) => {
+                    if (invitado.confirmado === 0) {
+                        return(
+                            <Container key={index}>
+                                <Row className="justify-content-center text-center">
+                                    <Col className="text-center">
+                                        <Form.Check 
+                                            inline
+                                            type="checkbox"
+                                            label={invitado.invitado}
+                                            onChange= {() => { invitados[index].confirmado = invitados[index].confirmado === 0 ? 1 : 0; setInvitados(invitados); console.log(invitados); }}
+                                        />
+                                    </Col>
+                                </Row>
+                            </Container>
+                        )
+                    } 
+                })}
+            </div>
+            {disabled || invitados.length === 0 ? <h1 className="py-4">Gracias por confirmar tu asistencia ❤️</h1> : <h1 className="d-none"></h1>}
+            <div className="py-4 d-flex justify-content-center">
+                <Form.Control as="textarea" placeholder='Felicita a Alessandra' rows={3} className="text-confirmacion" />
             </div>
             <div className="py-4">
-                <Button onClick={confirmarInvitado} disabled={disabled} variant="light" size="lg">
-                    Enviar
-                </Button>
+                <button onClick={confirmarInvitado} disabled={disabled} className='fs-5 fw-bold b-map py-2 px-5 mx-5' size="lg">
+                    CONFIRMAR
+                </button>
             </div>
-            <h3 className="py-4">UNA VEZ HECHA TU CONFIRMACIÓN TU CÓDIGO QR SE ACTIVARÁ Y <br/> CON ESE MISMO PODRÁS INGRESAR A LA PACHANGA</h3>
         </Col>
       </Row>
     </Container>
