@@ -1,31 +1,19 @@
 import React from 'react';
-import { Container, Row, Col, Button, Form } from 'react-bootstrap';
-import Liverpool from './images/liverpool.png';
+import { Container, Row, Col} from 'react-bootstrap';
 
 function MesaRegalos() {
   return (
-    <Container fluid>
-      <Row className="justify-content-center text-center m-5">
-        <Col className="text-center" md="10" lg="7">
-            <h1 className="fs-1 fw-bold">TU PRESENCIA LO ES TODO PARA MI.</h1>
-            <h4 className="fs-4 fw-semibold py-4"> Pero si gustas llevar un detalle te dejo algunas ideas:</h4>
+    <Container className='bg-mesa'>
+      <Row className="d-flex flex-column justify-content-center align-items-center text-center pt-4">
+        <Col className="text-center pt-2">
+            <h1 className="fs-1 fw-bold">TU PRESENCIA LO ES TODO PARA MÍ</h1>
+            <h4 className="fs-5 fw-semibold pb-5"> PERO SI DESEAS AGREGAR UUN DETALLE TE DEJO UNAS IDEAS</h4>
         </Col>
-      </Row>
-      <Row className="justify-content-center text-center m-5">
-        <Col className="text-start" md="12" lg="6" xl="5">
-            <h3 className='fs-2 fw-bolder pb-5'><strong>MESA DE REGALOS LIVERPOOOL</strong></h3>
-            <p className='fs-5 fw-light pb-5'>
-                Regalos...
-            </p>
+        <Col className="text-center">
+            <h3 className='py-4 mesa-regalos'><strong>MESA DE REGALOS LIVERPOOOL</strong></h3>
         </Col>
-        <Col className="text-center" md="12" lg="6" xl="5">
-            <img src={Liverpool} alt="Liverpool" className="img-fluid" />
-        </Col>
-      </Row>
-      <Row className="justify-content-center text-center m-5">
-        <Col className="text-center" md="10" lg="7">
-            <h1 className="fs-4 fw-bolder">RECUERDA TRAER TODAS LAS GANAS DE BAILAR, BEBER Y FESTEJAR.</h1>
-            <h4 className="fs-4 fw-semibold py-4">TE ESPERO!</h4>
+        <Col className="fs-1 fw-lighter text-center py-5">
+            NO. DE EVENTO: 123445
         </Col>
       </Row>
     </Container>

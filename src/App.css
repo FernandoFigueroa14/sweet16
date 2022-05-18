@@ -45,6 +45,18 @@
   font-family: 'Babylonica', cursive;
 }
 
+.mesa-regalos{
+  font-size: 2rem;
+  color: white;
+  font-weight: 900;
+  font-family: 'Babylonica', cursive;
+}
+
+.bg-mesa{
+  background-color: #e88c9f;
+  color: white;
+}
+
 .countdown-number{
   font-size: 5rem;
   font-weight: 900 ;
