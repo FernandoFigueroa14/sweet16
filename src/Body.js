@@ -20,12 +20,11 @@ const DateTimeDisplay = ({ value, type, isDanger }) => {
         </Col>
       </Row>
       <Row className="justify-content-center text-center m-md-4 mb-md-0">
-        <Col className="ceremonia fs-1 fw-bold text-light d-flex flex-column justify-content-center" sm="12" md="4">
+        <Col className="ceremonia fs-1 fw-bold text-light d-flex flex-column justify-content-center" sm="12" md="5">
             <p className='pb-3'>CEREMONIA DE <br/> AGRADECIMIENTO</p>
             <p>7:30 PM</p>
         </Col>
-        <Col sm="0" md="1"/>
-        <Col className="reven fs-1 fw-bold text-light d-flex flex-column justify-content-center" sm="12" md="4">
+        <Col className="reven fs-1 fw-bold text-light d-flex flex-column justify-content-center" sm="12" md="5">
             <p className='pb-3'>INICIO REVEN</p>
             <p>8:00 PM</p>
         </Col>

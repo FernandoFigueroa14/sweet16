@@ -46,9 +46,9 @@
 }
 
 .mesa-regalos{
-  font-size: 2rem;
+  font-size: 5rem;
   color: white;
-  font-weight: 900;
+  font-weight: 600;
   font-family: 'Babylonica', cursive;
 }
 
@@ -102,6 +102,13 @@
   background-position: center;
 }
 
+.hashtag {
+  background-image: url('./images/hashtag.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 .b-map{
   background-color: #e02a4f;
   color: white;
@@ -137,5 +144,8 @@
   .countdown-number{
     font-size: 4rem;
     font-weight: 900 ;
+  }
+  .hashtag {
+    background-position: left;
   }
 }

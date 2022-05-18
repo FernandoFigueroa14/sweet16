@@ -5,6 +5,7 @@ import Direccion from './Direccion.js';
 import Itinerario from './Itinerario.js';
 import Confirmacion from './Confirmacion.js';
 import MesaRegalos from './MesaRegalos';
+import Footer from './Footer.js';
 import './App.css';
 import ThemeProvider from 'react-bootstrap/ThemeProvider'
 
@@ -24,6 +25,7 @@ function App() {
         <Itinerario />
         <Confirmacion />
         <MesaRegalos />
+        <Footer />
       </div>
     </ThemeProvider>
   );

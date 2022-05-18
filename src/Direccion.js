@@ -5,10 +5,10 @@ function Direccion() {
   return (
     <Container fluid className='p-0'>
       <Row className="justify-content-center text-center mx-md-4">
-        <Col className="text-center bg-black text-light" md="12" lg="9">
+        <Col className="text-center bg-black text-light" md="12" lg="10">
             <h3 className='fs-2 fw-bolder pt-4'><strong>AMBOS SERÁN EN EL MISMO LUGAR</strong></h3>
         </Col>
-        <Col className="text-center bg-black text-light d-flex flex-column justify-content-center dir" md="12" lg="4">
+        <Col className="text-center bg-black text-light d-flex flex-column justify-content-center dir" md="12" lg="5">
             <p className='fs-5 fw-light pb-lg-5'>
                 <strong>Salón Danzalagua</strong><br/>
                 C. Cerro de las Campanas 3-A-3-A, <br/>
