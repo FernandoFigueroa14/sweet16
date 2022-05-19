@@ -33,14 +33,14 @@
 }
 
 .countdown-title{
-  font-size: 4rem;
+  font-size: 6rem;
   color: white;
   font-weight: 500;
   font-family: 'Babylonica', cursive;
 }
 
 .itinerario{
-  font-size: 6rem;
+  font-size: 7rem;
   color: #e02a4f;
   font-weight: 500;
   font-family: 'Babylonica', cursive;
@@ -59,8 +59,8 @@
 }
 
 .countdown-number{
-  font-size: 5rem;
-  font-weight: 900 ;
+  font-size: 7rem;
+  font-weight: 900;
 }
 
 .gmap_canvas {
@@ -100,7 +100,7 @@
   background-image: url('./images/pame.jpg');
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: top;
 }
 
 .hashtag {
@@ -136,6 +136,12 @@
   .map-column{
     display: none;
   }
+  .countdown-title{
+    font-size: 4rem;
+    color: white;
+    font-weight: 500;
+    font-family: 'Babylonica', cursive;
+  }
 }
 
 @media (max-width: 576px) {
@@ -148,5 +154,8 @@
   }
   .hashtag {
     background-position: left;
+  }
+  .confirmacion {
+    background-position: center;
   }
 }

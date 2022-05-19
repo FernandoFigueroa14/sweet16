@@ -5,7 +5,7 @@ const DateTimeDisplay = ({ value, type, isDanger }) => {
   return (
     <Container fluid className='p-0'>
       <Row className="justify-content-center text-center p-4 bg-black text-light">
-        <Col className="text-center fs-2 fw-light text-wrap" xs="12">
+        <Col className="text-center fs-2 fw-bolder text-wrap" xs="12">
         24 JUNIO 2022
         </Col>
       </Row>
@@ -25,7 +25,7 @@ const DateTimeDisplay = ({ value, type, isDanger }) => {
             <p>7:30 PM</p>
         </Col>
         <Col className="reven fs-1 fw-bold text-light d-flex flex-column justify-content-center" md="12" lg="5">
-            <p className='pb-3'>INICIO REVEN</p>
+            <p className='pb-3'>INICIO DEL REVEN</p>
             <p>8:00 PM</p>
         </Col>
       </Row>

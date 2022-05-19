@@ -10,7 +10,7 @@ function Direccion() {
         </Col>
         <Col className="text-center bg-black text-light d-flex flex-column justify-content-center dir" md="12" lg="5">
             <p className='fs-5 fw-light pb-lg-5'>
-                <strong>Salón Danzalagua</strong><br/>
+                <strong className='fw-bold'>Danzalagua Salón y Terraza</strong><br/>
                 C. Cerro de las Campanas 3-A-3-A, <br/>
                 San Andres Atenco, 54040 <br/>
                 Tlalnepantla de Baz, Méx.

@@ -41,6 +41,7 @@ function Confirmacion() {
             },
             body: JSON.stringify(invitados)
         })
+        getInvitados();
         setDisabled(true);
         invitados.map(inv => {
             if(inv.confirmado === 0){
@@ -66,8 +67,8 @@ function Confirmacion() {
     <Container className='confirmacion'>
       <Row className="justify-content-center text-center">
         <Col className="text-center">
-            <h1 className="py-4">SOLO NECESITAMOS TU <br/> CONFIRMACIÓN</h1>
-            <p>
+            <h1 className="py-4 fw-bolder">SOLO NECESITAMOS TU <br/> CONFIRMACIÓN</h1>
+            <p className="fs-4">
                 Selecciona la casilla a lado del nombre de los invitados <br/> que desees confirmar
             </p>
             <div className="py-4">
@@ -78,6 +79,7 @@ function Confirmacion() {
                                 <Row className="justify-content-center text-center">
                                     <Col className="text-center">
                                         <Form.Check 
+                                            className="fs-4"
                                             inline
                                             type="checkbox"
                                             label={invitado.invitado}
