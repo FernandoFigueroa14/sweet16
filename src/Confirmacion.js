@@ -1,11 +1,12 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { Container, Row, Col, Button, Form } from 'react-bootstrap';
+import { Container, Row, Col, Form } from 'react-bootstrap';
 import swal from 'sweetalert';
 
 function Confirmacion() {
     //invitados
     const [invitados, setInvitados] = useState([]);
+    const [reloadInvitados, setReloadInvitados] = useState(false);
     const [disabled, setDisabled] = useState(false);
     const id_family = window.location.pathname.split('/')[1];
     const api = `https://eflqr9xz2e.execute-api.us-east-1.amazonaws.com/prod/invitados/${id_family}`
@@ -41,7 +42,7 @@ function Confirmacion() {
             },
             body: JSON.stringify(invitados)
         })
-        getInvitados();
+        setReloadInvitados(true);
         setDisabled(true);
         invitados.map(inv => {
             if(inv.confirmado === 0){
@@ -61,7 +62,7 @@ function Confirmacion() {
         if (id_family) {
             getInvitados();
         }
-    }, []);
+    }, [reloadInvitados]);
 
   return (
     <Container className='confirmacion'>
@@ -75,16 +76,15 @@ function Confirmacion() {
                 {invitados.map((invitado, index) => {
                     if (invitado.confirmado === 0) {
                         return(
-                            <Container key={index}>
+                            <Container key={index} fluid className='px-0'>
                                 <Row className="justify-content-center text-center">
-                                    <Col className="text-center">
-                                        <Form.Check 
-                                            className="fs-4"
-                                            inline
-                                            type="checkbox"
-                                            label={invitado.invitado}
-                                            onChange= {() => { invitados[index].confirmado = invitados[index].confirmado === 0 ? 1 : 0; setInvitados(invitados); console.log(invitados); }}
-                                        />
+                                    <Col sm="0" md="3" xl="4">
+                                    </Col>
+                                    <Col className="text-start" sm="12" md="9" xl="8">
+                                        <input type="checkbox" id={index} onChange= {() => { invitados[index].confirmado = invitados[index].confirmado === 0 ? 1 : 0; setInvitados(invitados); console.log(invitados)}}/>
+                                        <label className='fs-4' for={index}>
+                                            {invitado.invitado}
+                                        </label>
                                     </Col>
                                 </Row>
                             </Container>

@@ -159,3 +159,47 @@
     background-position: center;
   }
 }
+
+
+/*      CHECKBOX         */
+
+input[type="checkbox"] {
+  display: none;
+}
+
+
+input[type="checkbox"] + label {
+  position: relative;
+  padding-left: 35px;
+  display: inline-block;
+  font-size: 16px;
+}
+
+input[type="checkbox"] + label:before {
+  content: "🤍";
+  top: -11px;
+  left: -8px;
+  border: 1px solid transparent;    
+  padding: 10px;
+  border-radius: 3px;
+  display: block;
+  position: absolute;
+  transition:  .5s ease;
+}
+
+
+
+input[type="checkbox"]:checked + label:before {
+  border: 1px solid transparent;
+  background-color: transparent;
+}
+
+input[type="checkbox"]:checked + label:after {
+  content: '❤️';
+  position: absolute;
+  top: 0px;
+  left: 3px;
+  color: rgba(255, 0, 0, 0.803);
+  transition:  0.5s ease;
+}
+/*                       */
