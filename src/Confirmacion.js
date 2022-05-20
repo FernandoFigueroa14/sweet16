@@ -123,7 +123,7 @@ function Confirmacion() {
                 <Form.Control as="textarea" placeholder='Felicita a Alessandra' id='mensaje' rows={3} className="text-confirmacion" onChange={event => {setMensaje({id_familia: id_family, mensaje: event.target.value});}} />
             </div>
             <div className="py-4">
-                <button onClick={confirmarInvitado} className='fs-5 fw-bold b-map py-2 px-5 mx-5' size="lg">
+                <button onClick={confirmarInvitado} className='fs-5 fw-bold b-map py-2 px-4 mx-5' size="lg">
                     CONFIRMAR
                 </button>
             </div>
