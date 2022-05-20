@@ -97,7 +97,7 @@ function Confirmacion() {
         <Col className="text-center">
             <h1 className="py-4 fw-bolder">SOLO NECESITAMOS TU <br/> CONFIRMACIÓN</h1>
             <p className="fs-4">
-                Selecciona la casilla a lado del nombre de los invitados <br/> que desees confirmar
+                Selecciona la casilla al lado del nombre de los invitados que desees confirmar. <br/> No te olvides de dejar un mensaje bonito para la festejada 🥳
             </p>
             <div className="py-4">
                 {invitados.map((invitado, index) => {
