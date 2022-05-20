@@ -88,6 +88,7 @@ function Confirmacion() {
         if (id_family) {
             getInvitados();
         }
+        setReloadInvitados(false);
     }, [reloadInvitados]);
 
   return (
