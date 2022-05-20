@@ -45,14 +45,14 @@ function Confirmacion() {
             });
             swal({
                 title: "¡Listo!",
-                text: "Gracias tus palabras ❤️",
+                text: "Gracias por tus palabras ❤️",
                 icon: "success",
                 button: "Aceptar",
             });
             setMensaje({id_familia: id_family, mensaje: ''});
             document.getElementById("mensaje").value = "";
         } else if (mensaje.mensaje.length === 0 && invitados.length === 0) {
-            swal("UPS!", "No haz escrito un mensaje para Ale 💔", "error");
+            swal("UPS!", "No has escrito un mensaje para Ale 💔", "error");
         } else {
             let enviar  = false
             invitados.map(inv => {
