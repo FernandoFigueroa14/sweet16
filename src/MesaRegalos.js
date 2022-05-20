@@ -15,7 +15,7 @@ function MesaRegalos() {
         <Col className="fs-1 fw-bolder text-center py-4">
             
             NO. DE EVENTO: 50882319 <br/>
-            <a className='text-decoration-none fs-5 fw-light text-light mesa'  href='https://mesaderegalos.liverpool.com.mx/milistaderegalos/50882319?_ga=2.152722233.1819738152.1652495999-37385659.1652495999'>👉 Echale un ojo dando click aqui 👈 </a>
+            <a className='text-decoration-none fs-5 fw-light text-light mesa'  href='https://mesaderegalos.liverpool.com.mx/milistaderegalos/50882319?_ga=2.152722233.1819738152.1652495999-37385659.1652495999'>👉 Échale un ojo dando click aquí 👈 </a>
         </Col>
       </Row>
     </Container>
