@@ -5,10 +5,10 @@ import swal from 'sweetalert';
 
 function Confirmacion() {
     //invitados
+    const id_family = window.location.pathname.split('/')[1];
     const [invitados, setInvitados] = useState([]);
     const [reloadInvitados, setReloadInvitados] = useState(false);
-    const [disabled, setDisabled] = useState(false);
-    const id_family = window.location.pathname.split('/')[1];
+    const [mensaje, setMensaje] = useState({id_familia: id_family, mensaje: ''});
     const api = `https://eflqr9xz2e.execute-api.us-east-1.amazonaws.com/prod/invitados/${id_family}`
 
     //obtener invitados de la base de datos
@@ -33,28 +33,54 @@ function Confirmacion() {
 
     //funcion para confirmar invitado
     const confirmarInvitado = async () =>{
-        await fetch(api, {
+        if (mensaje.mensaje.length > 0) {
+            await fetch('https://eflqr9xz2e.execute-api.us-east-1.amazonaws.com/prod/mensajes', {
             method: 'POST',
             mode: 'cors',
             headers: {
                 'Content-Type': 'application/json',
                 'Access-Control-Allow-Origin': '*'
             },
-            body: JSON.stringify(invitados)
-        })
-        setReloadInvitados(true);
-        setDisabled(true);
-        invitados.map(inv => {
-            if(inv.confirmado === 0){
-                setDisabled(false);
+            body: JSON.stringify(mensaje)
+            });
+            swal({
+                title: "¡Listo!",
+                text: "Gracias tus palabras ❤️",
+                icon: "success",
+                button: "Aceptar",
+            });
+            setMensaje({id_familia: id_family, mensaje: ''});
+            document.getElementById("mensaje").value = "";
+        } else if (mensaje.mensaje.length === 0 && invitados.length === 0) {
+            swal("UPS!", "No haz escrito un mensaje para Ale 💔", "error");
+        } else {
+            let enviar  = false
+            invitados.map(inv => {
+                if(inv.confirmado === 1){
+                    enviar = true
+                }
+            });
+            if (enviar) {
+                await fetch(api, {
+                    method: 'POST',
+                    mode: 'cors',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Access-Control-Allow-Origin': '*'
+                    },
+                    body: JSON.stringify(invitados)
+                });
+                setReloadInvitados(true);
+                swal({
+                    title: "¡Listo!",
+                    text: "Gracias por confirmar",
+                    icon: "success",
+                    button: "Aceptar",
+                });
+            } else {
+                swal("UPS!", "No haz confirmado ningún invitado 💔", "error");
             }
-        });
-        swal({
-            title: "¡Listo!",
-            text: "Gracias por confirmar",
-            icon: "success",
-            button: "Aceptar",
-          });
+        }
     }
 
     //creacion del componente
@@ -81,7 +107,7 @@ function Confirmacion() {
                                     <Col sm="0" md="3" xl="4">
                                     </Col>
                                     <Col className="text-start" sm="12" md="9" xl="8">
-                                        <input type="checkbox" id={index} onChange= {() => { invitados[index].confirmado = invitados[index].confirmado === 0 ? 1 : 0; setInvitados(invitados); console.log(invitados)}}/>
+                                        <input type="checkbox" id={index} onChange= {() => { invitados[index].confirmado = invitados[index].confirmado === 0 ? 1 : 0; setInvitados(invitados);}}/>
                                         <label className='fs-4' for={index}>
                                             {invitado.invitado}
                                         </label>
@@ -92,12 +118,12 @@ function Confirmacion() {
                     } 
                 })}
             </div>
-            {disabled || invitados.length === 0 ? <h1 className="py-4">Gracias por confirmar tu asistencia ❤️</h1> : <h1 className="d-none"></h1>}
+            {invitados.length === 0 ? <h1 className="py-4">Gracias por confirmar tu asistencia ❤️</h1> : <h1 className="d-none"></h1>}
             <div className="py-4 d-flex justify-content-center">
-                <Form.Control as="textarea" placeholder='Felicita a Alessandra' rows={3} className="text-confirmacion" />
+                <Form.Control as="textarea" placeholder='Felicita a Alessandra' id='mensaje' rows={3} className="text-confirmacion" onChange={event => {setMensaje({id_familia: id_family, mensaje: event.target.value});}} />
             </div>
             <div className="py-4">
-                <button onClick={confirmarInvitado} disabled={disabled} className='fs-5 fw-bold b-map py-2 px-5 mx-5' size="lg">
+                <button onClick={confirmarInvitado} className='fs-5 fw-bold b-map py-2 px-5 mx-5' size="lg">
                     CONFIRMAR
                 </button>
             </div>
