@@ -22,7 +22,7 @@ const DateTimeDisplay = ({ value, type, isDanger }) => {
       <Row className="justify-content-center text-center m-md-4 mb-md-0">
         <Col className="ceremonia fs-1 fw-bold text-light d-flex flex-column justify-content-center" md="12" lg="5">
             <p className='pb-3'>CEREMONIA DE <br/> AGRADECIMIENTO</p>
-            <p>7:30 PM</p>
+            <p>7:15 PM</p>
         </Col>
         <Col className="reven fs-1 fw-bold text-light d-flex flex-column justify-content-center" md="12" lg="5">
             <p className='pb-3'>INICIO DEL REVEN</p>
