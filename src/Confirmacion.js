@@ -78,7 +78,7 @@ function Confirmacion() {
                     button: "Aceptar",
                 });
             } else {
-                swal("UPS!", "No haz confirmado ningún invitado 💔", "error");
+                swal("UPS!", "No has confirmado ningún invitado 💔", "error");
             }
         }
     }
