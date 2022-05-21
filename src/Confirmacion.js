@@ -53,7 +53,8 @@ function Confirmacion() {
             document.getElementById("mensaje").value = "";
         } else if (mensaje.mensaje.length === 0 && invitados.length === 0) {
             swal("UPS!", "No has escrito un mensaje para Ale 💔", "error");
-        } else {
+        } 
+        if (invitados.length > 0) {
             let enviar  = false
             invitados.map(inv => {
                 if(inv.confirmado === 1){
@@ -101,7 +102,7 @@ function Confirmacion() {
             </p>
             <div className="py-4">
                 {invitados.map((invitado, index) => {
-                    if (invitado.confirmado === 0) {
+                    if(invitado.confirmado === 0){
                         return(
                             <Container key={index} fluid className='px-0'>
                                 <Row className="justify-content-center text-center">
@@ -116,7 +117,7 @@ function Confirmacion() {
                                 </Row>
                             </Container>
                         )
-                    } 
+                    }
                 })}
             </div>
             {invitados.length === 0 ? <h1 className="py-4">Gracias por confirmar tu asistencia ❤️</h1> : <h1 className="d-none"></h1>}
