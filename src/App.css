@@ -116,6 +116,14 @@
   border: none;
 }
 
+.error{
+  color: red;
+}
+
+.len{
+  font-size: 1rem;
+}
+
 .text-confirmacion{
   max-width: 500px;
 }

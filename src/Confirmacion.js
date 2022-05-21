@@ -120,9 +120,10 @@ function Confirmacion() {
                 })}
             </div>
             {invitados.length === 0 ? <h1 className="py-4">Gracias por confirmar tu asistencia ❤️</h1> : <h1 className="d-none"></h1>}
-            <div className="py-4 d-flex justify-content-center">
-                <Form.Control as="textarea" placeholder='Felicita a Alessandra' id='mensaje' rows={3} className="text-confirmacion" onChange={event => {setMensaje({id_familia: id_family, mensaje: event.target.value});}} />
+            <div className="pt-4 d-flex justify-content-center">
+                <Form.Control as="textarea" placeholder='Felicita a Alessandra' id='mensaje' rows={3} className="text-confirmacion" maxLength="1024" onChange={event => {setMensaje({id_familia: id_family, mensaje: event.target.value});}} />
             </div>
+            {mensaje.mensaje.length === 1024 ? <p className="error len">¡Ya no puedes escribir más!</p> : <p className="len">{mensaje.mensaje.length}/1024</p>}
             <div className="py-4">
                 <button onClick={confirmarInvitado} className='fs-5 fw-bold b-map py-2 px-4 mx-5' size="lg">
                     CONFIRMAR
