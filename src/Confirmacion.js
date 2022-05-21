@@ -110,7 +110,7 @@ function Confirmacion() {
                                     <Col className="text-start" sm="12" md="9" xl="8">
                                         <input type="checkbox" id={index} onChange= {() => { invitados[index].confirmado = invitados[index].confirmado === 0 ? 1 : 0; setInvitados(invitados);}}/>
                                         <label className='fs-4' for={index}>
-                                            {invitado.invitado}
+                                            {invitado.invitado.toUpperCase()}
                                         </label>
                                     </Col>
                                 </Row>
