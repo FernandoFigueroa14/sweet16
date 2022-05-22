@@ -59,7 +59,7 @@ function Confirmacion() {
             });
             mensaje.current = "";
             document.getElementById("mensaje").value = "";
-        } else if (mensaje.currentt.length === 0 && invitados.length === 0) {
+        } else if (mensaje.current.length === 0 && invitados.length === 0) {
             swal("UPS!", "No has escrito un mensaje para Ale 💔", "error");
         } 
         if (invitados.length > 0) {
