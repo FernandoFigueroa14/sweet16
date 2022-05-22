@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Container, Row, Col, Form } from 'react-bootstrap';
 import swal from 'sweetalert';
 
@@ -8,7 +8,7 @@ function Confirmacion() {
     const id_family = window.location.pathname.split('/')[1];
     const [invitados, setInvitados] = useState([]);
     const [reloadInvitados, setReloadInvitados] = useState(false);
-    const [mensaje, setMensaje] = useState({id_familia: id_family, mensaje: ''});
+    const mensaje = useRef("");
     const api = `https://eflqr9xz2e.execute-api.us-east-1.amazonaws.com/prod/invitados/${id_family}`
 
     //obtener invitados de la base de datos
@@ -31,9 +31,17 @@ function Confirmacion() {
         console.log("Fetching invitados");
     };
 
+    const setMensaje = () => {
+        mensaje.current = document.getElementById("mensaje").value;
+    }
+
     //funcion para confirmar invitado
     const confirmarInvitado = async () =>{
-        if (mensaje.mensaje.length > 0) {
+        let mensajeBody = {
+            id_familia: id_family,
+            mensaje: mensaje.current
+        };
+        if (mensaje.current.length > 0) {
             await fetch('https://eflqr9xz2e.execute-api.us-east-1.amazonaws.com/prod/mensajes', {
             method: 'POST',
             mode: 'cors',
@@ -41,7 +49,7 @@ function Confirmacion() {
                 'Content-Type': 'application/json',
                 'Access-Control-Allow-Origin': '*'
             },
-            body: JSON.stringify(mensaje)
+            body: JSON.stringify(mensajeBody)
             });
             swal({
                 title: "¡Listo!",
@@ -49,9 +57,9 @@ function Confirmacion() {
                 icon: "success",
                 button: "Aceptar",
             });
-            setMensaje({id_familia: id_family, mensaje: ''});
+            mensaje.current = "";
             document.getElementById("mensaje").value = "";
-        } else if (mensaje.mensaje.length === 0 && invitados.length === 0) {
+        } else if (mensaje.currentt.length === 0 && invitados.length === 0) {
             swal("UPS!", "No has escrito un mensaje para Ale 💔", "error");
         } 
         if (invitados.length > 0) {
@@ -122,9 +130,8 @@ function Confirmacion() {
             </div>
             {invitados.length === 0 ? <h1 className="py-4">Gracias por confirmar tu asistencia ❤️</h1> : <h1 className="d-none"></h1>}
             <div className="pt-4 d-flex justify-content-center">
-                <Form.Control as="textarea" placeholder='Felicita a Alessandra' id='mensaje' rows={3} className="text-confirmacion" maxLength="1024" onChange={event => {setMensaje({id_familia: id_family, mensaje: event.target.value});}} />
+                <Form.Control as="textarea" placeholder='Felicita a Alessandra' id='mensaje' rows={3} className="text-confirmacion" maxLength="1024" onChange={setMensaje} />
             </div>
-            {mensaje.mensaje.length === 1024 ? <p className="error len">¡Ya no puedes escribir más!</p> : <p className="len">{mensaje.mensaje.length}/1024</p>}
             <div className="py-4">
                 <button onClick={confirmarInvitado} className='fs-5 fw-bold b-map py-2 px-4 mx-5' size="lg">
                     CONFIRMAR
