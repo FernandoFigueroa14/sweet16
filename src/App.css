@@ -110,6 +110,14 @@
   background-position: center;
 }
 
+.mensajes {
+  background-image: url('./images/mensajes-bg.jpeg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+}
+
 .b-map{
   background-color: #e02a4f;
   color: white;
@@ -137,6 +145,9 @@
   }
   .App-header{
     background-attachment:inherit;
+  }
+  .mensajes{
+    background-image: linear-gradient(to bottom, #d16ba5, #da7ab6, #e389c6, #ec98d7, #f4a7e7, #f8b2ef, #fbbcf6, #ffc7fd, #fed0fd, #fed8fc, #fde1fc, #fce9fb);
   }
   .dir{
     padding: 2rem 0 2rem 0;
